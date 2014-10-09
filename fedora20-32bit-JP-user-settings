@@ -1,0 +1,37 @@
+###Fedora20 JP settings. Install yum-plugin-fastermirror to download packages in quick###
+yum -y install yum-plugin-fastermirror
+
+#/bin/sh
+rpm -ivh http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-stable.noarch.rpm
+rpm -ivh http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-stable.noarch.rpm
+
+yum install gstreamer-ffmpeg gstreamer-plugins-ugly gstreamer-plugins-bad gstreamer-plugins-bad-free-extras gstreamer-plugins-bad-nonfree
+
+yum -y install ibus-mozc htop vlc vim nano libreoffice-langpack-ja
+
+rpm -ivh http://linuxdownload.adobe.com/adobe-release/adobe-release-i386-1.0-1.noarch.rpm
+rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-adobe-linux
+
+yum check-update
+
+
+yum install flash-plugin nspluginwrapper alsa-plugins-pulseaudio libcurl
+
+
+
+only add mozc from settings --> religion and lanuage
+edit .bashrc
+add
+
+setxkbmap jp -model jp106
+
+gedit .bashrc
+add above command on the end.
+reboot
+
+優先接続が自動でつながらない対処
+ネットワークアイコンをクリックまたは設定からネットワーク
+優先-->Identityで自動接続するをチェックする。
+以上。
+
+
