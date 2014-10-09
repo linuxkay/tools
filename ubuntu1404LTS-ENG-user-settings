@@ -1,0 +1,5 @@
+###Ubuntu14.04LTS 32bit(works in 64bit.) Update system first and install pacakges later.###
+sudo apt-get update && sudo apt-get -y upgrade && sudo apt-get -y dist-upgrade && sudo apt-get -y autoremove && sudo apt-get -y autoclean && sudo init 6
+
+###Following line will install pacakages to play mp3,dvd, and fashl.Bug report will be disabled by sed section.###
+sudo sh -c "echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | debconf-set-selections" && sudo apt-get -y install pepperflashplugin-nonfree htop powertop ubuntu-restricted-extras libreoffice fonts-vlgothic xsane flashplugin-installer rhythmbox vlc vim chromium-browser && sudo /usr/share/doc/libdvdread4/install-css.sh && sudo sed -i s/enabled=1/enabled=0/g /etc/default/apport && sudo update-pepperflashplugin-nonfree --install && sudo init 6
