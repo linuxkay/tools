@@ -1,0 +1,11 @@
+###Lubuntu14.04LTS 32bit setting scripts for JP.###
+sudo apt-get update && sudo apt-get -y upgrade && sudo apt-get -y dist-upgrade && sudo apt-get -y autoremove && sudo apt-get -y autoclean && sudo init 6
+
+sudo sh -c "echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | debconf-set-selections" && sudo apt-get -y purge ibus-mozc ibus && sudo apt-get -y install  pavucontrol alsa-utils fonts-arphic-uming htop powertop fcitx fcitx-mozc fcitx-libs-qt5 fcitx-frontend-qt5 fonts-vlgothic flashplugin-installer ubuntu-restricted-extras libreoffice xsane rhythmbox vlc vim && sudo /usr/share/doc/libdvdread4/install-css.sh && sudo sed -i s/enabled=1/enabled=0/g /etc/default/apport && sudo cp /usr/share/fonts/truetype/fonts-japanese-mincho.ttf /usr/share/fonts/truetype/arphic/uming.ttc && sudo init 6
+###Check following settings after system rebooted###
+Wallpaper
+sudo ufw default deny
+nm-applet
+libreoffice
+language-support
+
