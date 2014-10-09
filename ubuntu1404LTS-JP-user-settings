@@ -2,5 +2,5 @@
 ####This scripts aiming to create JP enviroment under ubuntu14.04LTS 32bit.#### 
 sudo apt-get update && sudo apt-get -y upgrade && sudo apt-get -y dist-upgrade && sudo apt-get -y autoremove && sudo apt-get -y autoclean && sudo init 6
 
-
+####Following line will install fonts,fashplugin,somepacakges to play mp3, dvd,and etc. Bug repport will be disable by sed section.
 sudo sh -c "echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | debconf-set-selections" && sudo apt-get -y install pepperflashplugin-nonfree htop powertop ubuntu-restricted-extras libreoffice fonts-vlgothic xsane flashplugin-installer rhythmbox vlc vim chromium-browser && sudo /usr/share/doc/libdvdread4/install-css.sh && sudo sed -i s/enabled=1/enabled=0/g /etc/default/apport && sudo update-pepperflashplugin-nonfree --install && sudo init 6
