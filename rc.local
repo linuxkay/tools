@@ -1,0 +1,6 @@
+##This file is /etc/rc.local
+##Killing bluetooth on boot to save battery on any device has bluetooth
+rfkill block bluetooth
+exit 0
+
+
