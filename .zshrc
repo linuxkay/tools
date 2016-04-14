@@ -20,14 +20,14 @@ autoload colors
 colors
 case ${UID} in
 0)
-    PROMPT="%{${fg[cyan]}%}$(echo ${HOST%%.*} | tr '[a-z]' '[A-Z]') %B%{${fg[red]}%}%/#%{${reset_color}%}%b "
-    PROMPT2="%B%{${fg[red]}%}%_#%{${reset_color}%}%b "
-    SPROMPT="%B%{${fg[red]}%}%r is correct? [n,y,a,e]:%{${reset_color}%}%b "
+    PROMPT="%{${fg[cyan]}%}$(echo ${HOST%%.*} | tr '[a-z]' '[A-Z]') %B%{${fg[defaults]}%}%/#%{${reset_color}%}%b "
+    PROMPT2="%B%{${fg[defaults]}%}%_#%{${reset_color}%}%b "
+    SPROMPT="%B%{${fg[defaults]}%}%r is correct? [n,y,a,e]:%{${reset_color}%}%b "
     ;;
 *)
-    PROMPT="%{${fg[red]}%}%/%%%{${reset_color}%} "
-    PROMPT2="%{${fg[red]}%}%_%%%{${reset_color}%} "
-    SPROMPT="%{${fg[red]}%}%r is correct? [n,y,a,e]:%{${reset_color}%} "
+    PROMPT="%{${fg[defaults]}%}%/%%%{${reset_color}%} "
+    PROMPT2="%{${fg[defaults]}%}%_%%%{${reset_color}%} "
+    SPROMPT="%{${fg[defaults]}%}%r is correct? [n,y,a,e]:%{${reset_color}%} "
     [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
         PROMPT="%{${fg[cyan]}%}$(echo ${HOST%%.*} | tr '[a-z]' '[A-Z]') ${PROMPT}"
     ;;
@@ -104,10 +104,10 @@ compinit
 autoload zed
 
 
-## Prediction configuration
+## Pdefaultsiction configuration
 #
-#autoload predict-on
-#predict-off
+#autoload pdefaultsict-on
+#pdefaultsict-off
 
 
 ## Alias configuration
@@ -137,6 +137,11 @@ alias df="df -h"
 
 alias su="su -l"
 
+alias goupdate="sudo apt-get update && sudo apt-get -y upgrade && sudo apt-get -y dist-upgrade && sudo apt-get -y autoremove && sudo apt-get -y autoclean && sudo init 6"
+alias 0update="sudo apt-get update && sudo apt-get -y upgrade && sudo apt-get -y dist-upgrade && sudo apt-get -y autoremove && sudo apt-get -y autoclean && sudo init 0"
+alias update0="sudo apt-get update && sudo apt-get -y upgrade && sudo apt-get -y dist-upgrade && sudo apt-get -y autoremove && sudo apt-get -y autoclean && sudo init 0"
+alias search="sudo apt search "
+alias purge="sudo apt-get -y purge "
 
 ## terminal configuration
 #
