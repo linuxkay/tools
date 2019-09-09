@@ -24,6 +24,9 @@ sudo watch "lsof -i -a -c ssh"
 -------find word from directories-----
 sudo find /root -type f -name "*.php" | xargs grep "word"
 
+-----------ffmpeg screen capture(This does not work in wayland.)
+ffmpeg -video_size 1365x768 -framerate 25 -f x11grab -i :0.0+1,0 /tmp/screenrecord1.mp4
+
 -----------ffmpeg x264 encoding-------
 ffmpeg -y -i video.mp4  -c:v libx264 -b:v 1.5M -pass 1 -speed 4  -f mp4 /dev/null && ffmpeg -y -i video.mp4  -c:v libx264 -b:v 1.5M -pass 2 -speed 1 -f mp4 /tmp/out.mp4 
 
@@ -37,7 +40,7 @@ ffmpeg -i video.mp4 -c:v libx264 -preset medium -crf 32 -c:a aac -b:a 128k /tmp/
 ---------ffmpeg simple x264 encoding without audio-------
 ffmpeg -i video.mp4 -c:v libx264 -preset medium -crf 32  -an  /tmp/x264.mp4
 
---------convert video for VXM-145VFEi
+--------convert video for pioneer car navigation VXM-145VFEi
 ffmpeg -i -s 720x480 -profile:v baseline -level 2.1 
 -------convert all videos in folder for VXM-145VFEi
 for i in *.m4v; do ffmpeg -i "$i" -s 720x480 -profile:v baseline -level 2.1 "${i%.*}.mp4"; done
