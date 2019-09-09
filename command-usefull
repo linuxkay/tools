@@ -1,0 +1,49 @@
+usefull command
+started Feb3 2017
+
+----------Show active WiFi-----------
+nmcli dev wifi
+
+-----------Connect to New WiFi-----------
+nmcli dev wifi con "WiFi-Name" password Verysecureyourpassword name "WiFi-Name"
+
+-----------Connect to known WiFi----------
+nmcli con up id "Xperia Z3 Compact_dd35"
+
+----------check file size with wget--------
+wget --spider https://domain.com/file.mp4
+
+
+--------check rsync connection-------
+sudo watch "lsof -ad3-999 -c rsync"
+
+
+----------check ssh connection--------
+sudo watch "lsof -i -a -c ssh"
+
+-------find word from directories-----
+sudo find /root -type f -name "*.php" | xargs grep "word"
+
+-----------ffmpeg x264 encoding-------
+ffmpeg -y -i video.mp4  -c:v libx264 -b:v 1.5M -pass 1 -speed 4  -f mp4 /dev/null && ffmpeg -y -i video.mp4  -c:v libx264 -b:v 1.5M -pass 2 -speed 1 -f mp4 /tmp/out.mp4 
+
+------ffmpeg combine audio and video-------
+ffmpeg -i video.mp4 -i audio.wav \
+-c:v copy -c:a aac -strict experimental output.mp4
+
+------ffmpeg simple x264 encoding with audio-------------
+ffmpeg -i video.mp4 -c:v libx264 -preset medium -crf 32 -c:a aac -b:a 128k /tmp/x264.mp4
+
+---------ffmpeg simple x264 encoding without audio-------
+ffmpeg -i video.mp4 -c:v libx264 -preset medium -crf 32  -an  /tmp/x264.mp4
+
+--------convert video for VXM-145VFEi
+ffmpeg -i -s 720x480 -profile:v baseline -level 2.1 
+-------convert all videos in folder for VXM-145VFEi
+for i in *.m4v; do ffmpeg -i "$i" -s 720x480 -profile:v baseline -level 2.1 "${i%.*}.mp4"; done
+
+---find only jpg files from dir including subdirectory and move them to /tmp/pi
+find /sourcedir -type f -name "*.jpg" -exec cp {} /tmp/pi \;
+
+---create backup using tar to keep permission adding -p option to tar
+tar zcvpf backup$(date +'%Y-%m-%d_%H%M').tar.gz /targetdir
