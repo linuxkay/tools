@@ -136,7 +136,7 @@ alias du="du -h"
 alias df="df -h"
 
 alias su="su -l"
-
+alias ls_latest="ls -Art | tail -n 1"
 alias goupdate="sudo apt-get update && sudo apt-get -y upgrade && sudo apt-get -y dist-upgrade && sudo apt-get -y autoremove && sudo apt-get -y autoclean && sudo init 6"
 alias 0update="sudo apt-get update && sudo apt-get -y upgrade && sudo apt-get -y dist-upgrade && sudo apt-get -y autoremove && sudo apt-get -y autoclean && sudo init 0"
 alias update0="sudo apt-get update && sudo apt-get -y upgrade && sudo apt-get -y dist-upgrade && sudo apt-get -y autoremove && sudo apt-get -y autoclean && sudo init 0"
